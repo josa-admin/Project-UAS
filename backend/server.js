@@ -41,7 +41,10 @@ io.on('connection', (socket) => {
 
 // Export io untuk digunakan di controller
 export { io };
-
+// Route handler: runs for a GET request to exactly /test
+app.get('/test', (req, res) => {
+  res.send('Hello from /test route handler');
+});
 const PORT = process.env.PORT || 5000;
 httpServer.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
