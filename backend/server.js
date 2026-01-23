@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import { createServer } from 'http';
-import { Server } from 'socket.io';
+// import { Server } from 'socket.io';
 import authRoutes from './routes/authRoutes.js';
 import beasiswaRoutes from './routes/beasiswaRoutes.js';
 import notificationRoutes from './routes/notificationRoutes.js';
@@ -11,12 +11,12 @@ dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
-const io = new Server(httpServer, {
-  cors: {
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    credentials: true,
-  },
-});
+// const io = new Server(httpServer, {
+//   cors: {
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     credentials: true,
+//   },
+// });
 
 app.use(cors());
 app.use(express.json());
