@@ -24,7 +24,7 @@ const router = express.Router();
 
 router.get('/', getAllBeasiswa);
 router.get('/categories', getCategories);
-router.get('/:id', getBeasiswaById);
+router.get('/:id', authMiddleware, getBeasiswaById);
 router.post('/', authMiddleware, adminMiddleware, createBeasiswa);
 router.put('/:id', authMiddleware, adminMiddleware, updateBeasiswa);
 router.delete('/:id', authMiddleware, adminMiddleware, deleteBeasiswa);
