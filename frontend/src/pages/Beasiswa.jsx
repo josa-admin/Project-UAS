@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import FilterBeasiswa from '../components/FilterBeasiswa';
-import BeasiswaCard from '../components/BeasiswaCard';
-import { beasiswaAPI } from '../services/api';
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import FilterBeasiswa from "../components/FilterBeasiswa";
+import BeasiswaCard from "../components/BeasiswaCard";
+import { beasiswaAPI } from "../services/api";
 
 const Beasiswa = () => {
   const navigate = useNavigate();
@@ -10,10 +10,15 @@ const Beasiswa = () => {
   const [filteredList, setFilteredList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
-    jenis_beasiswa: '',
-    kategori: '',
-    search: '',
+    jenis_beasiswa: "",
+    kategori: "",
+    search: "",
   });
+
+  const isLoggedIn = () => {
+    const token = localStorage.getItem("token");
+    return !!token;
+  };
 
   useEffect(() => {
     const fetchBeasiswa = async () => {
@@ -22,7 +27,7 @@ const Beasiswa = () => {
         setBeasiswaList(response.data);
         setFilteredList(response.data);
       } catch (error) {
-        console.error('Error fetching beasiswa:', error);
+        console.error("Error fetching beasiswa:", error);
       } finally {
         setLoading(false);
       }
@@ -36,13 +41,19 @@ const Beasiswa = () => {
   };
 
   if (loading) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        Loading...
+      </div>
+    );
   }
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
-        <h1 className="text-4xl font-bold text-gray-800 mb-8">Daftar Beasiswa</h1>
+        <h1 className="text-4xl font-bold text-gray-800 mb-8">
+          Daftar Beasiswa
+        </h1>
 
         <div className="mb-8">
           <FilterBeasiswa onFilter={handleFilter} />
@@ -54,7 +65,9 @@ const Beasiswa = () => {
 
         {filteredList.length === 0 ? (
           <div className="text-center py-12 bg-white rounded-lg">
-            <p className="text-gray-500 text-lg">Tidak ada beasiswa yang sesuai dengan filter Anda</p>
+            <p className="text-gray-500 text-lg">
+              Tidak ada beasiswa yang sesuai dengan filter Anda
+            </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -62,7 +75,11 @@ const Beasiswa = () => {
               <BeasiswaCard
                 key={beasiswa.id}
                 beasiswa={beasiswa}
-                onClick={() => navigate(`/beasiswa/${beasiswa.id}`)}
+                onClick={() =>
+                  isLoggedIn()
+                    ? navigate(`/beasiswa/${beasiswa.id}`)
+                    : navigate("/login")
+                }
               />
             ))}
           </div>
