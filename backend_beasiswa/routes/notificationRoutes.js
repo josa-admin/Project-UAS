@@ -1,11 +1,11 @@
-import express from 'express';
-import {
+const express = require('express');
+const {
   getNotifications,
   markNotificationAsRead,
   sendNotificationToUsers,
   getUnreadCount,
-} from '../controllers/notificationController.js';
-import { authMiddleware, adminMiddleware } from '../middleware/auth.js';
+} = require('../controllers/notificationController');
+const { authMiddleware, adminMiddleware } = require('../middleware/auth');
 
 const router = express.Router();
 
@@ -14,4 +14,4 @@ router.get('/unread/count', authMiddleware, getUnreadCount);
 router.put('/:id/read', authMiddleware, markNotificationAsRead);
 router.post('/send', authMiddleware, adminMiddleware, sendNotificationToUsers);
 
-export default router;
+module.exports = router;

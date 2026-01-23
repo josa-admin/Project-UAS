@@ -1,6 +1,6 @@
-import getPool from '../config/database.js';
+const getPool = require('../config/database');
 
-export const getNotifications = async (req, res) => {
+const getNotifications = async (req, res) => {
   try {
     const userId = req.user.id;
     const [notifications] = await getPool.query(
@@ -13,7 +13,7 @@ export const getNotifications = async (req, res) => {
   }
 };
 
-export const markNotificationAsRead = async (req, res) => {
+const markNotificationAsRead = async (req, res) => {
   try {
     const { id } = req.params;
     await getPool.query('UPDATE notifications SET is_read = true WHERE id = ? AND user_id = ?', [
@@ -26,7 +26,7 @@ export const markNotificationAsRead = async (req, res) => {
   }
 };
 
-export const sendNotificationToUsers = async (req, res) => {
+const sendNotificationToUsers = async (req, res) => {
   try {
     const { title, message } = req.body;
 
@@ -50,7 +50,7 @@ export const sendNotificationToUsers = async (req, res) => {
   }
 };
 
-export const getUnreadCount = async (req, res) => {
+const getUnreadCount = async (req, res) => {
   try {
     const userId = req.user.id;
     const [result] = await getPool.query(
@@ -61,4 +61,11 @@ export const getUnreadCount = async (req, res) => {
   } catch (error) {
     res.status(500).json({ message: 'Server error', error: error.message });
   }
+};
+
+module.exports = {
+  getNotifications,
+  markNotificationAsRead,
+  sendNotificationToUsers,
+  getUnreadCount,
 };
