@@ -1,9 +1,10 @@
-import pool from '../config/database.js';
+import getPool from '../config/database.js';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 export const register = async (req, res) => {
   try {
+    const pool = await getPool();
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {

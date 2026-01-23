@@ -1,8 +1,8 @@
-import pool from './database.js';
+import getPool from './database.js';
 
 async function cekKoneksi() {
   try {
-    await pool.query('SELECT 1');
+    await getPool.query('SELECT 1');
     console.log('✅ Database SUDAH tersambung');
   } catch (error) {
     console.error('❌ Database BELUM tersambung');

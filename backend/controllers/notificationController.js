@@ -1,9 +1,9 @@
-import pool from '../config/database.js';
+import getPool from '../config/database.js';
 
 export const getNotifications = async (req, res) => {
   try {
     const userId = req.user.id;
-    const [notifications] = await pool.query(
+    const [notifications] = await getPool.query(
       'SELECT * FROM notifications WHERE user_id = ? ORDER BY created_at DESC',
       [userId]
     );
@@ -16,7 +16,7 @@ export const getNotifications = async (req, res) => {
 export const markNotificationAsRead = async (req, res) => {
   try {
     const { id } = req.params;
-    await pool.query('UPDATE notifications SET is_read = true WHERE id = ? AND user_id = ?', [
+    await getPool.query('UPDATE notifications SET is_read = true WHERE id = ? AND user_id = ?', [
       id,
       req.user.id,
     ]);
@@ -34,10 +34,10 @@ export const sendNotificationToUsers = async (req, res) => {
       return res.status(400).json({ message: 'Title dan message harus diisi' });
     }
 
-    const [users] = await pool.query("SELECT id FROM users WHERE role = 'user'");
+    const [users] = await getPool.query("SELECT id FROM users WHERE role = 'user'");
 
     for (const user of users) {
-      await pool.query('INSERT INTO notifications (user_id, title, message) VALUES (?, ?, ?)', [
+      await getPool.query('INSERT INTO notifications (user_id, title, message) VALUES (?, ?, ?)', [
         user.id,
         title,
         message,
@@ -53,7 +53,7 @@ export const sendNotificationToUsers = async (req, res) => {
 export const getUnreadCount = async (req, res) => {
   try {
     const userId = req.user.id;
-    const [result] = await pool.query(
+    const [result] = await getPool.query(
       'SELECT COUNT(*) as count FROM notifications WHERE user_id = ? AND is_read = false',
       [userId]
     );
