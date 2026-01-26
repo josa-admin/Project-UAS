@@ -28,9 +28,9 @@ const Tentang = () => {
           </ul>
 
           <h2 className="text-2xl font-bold text-gray-800 mb-4">📞 Hubungi Kami</h2>
-          <p className="text-gray-700 mb-2">Email: info@beasiswa.info</p>
-          <p className="text-gray-700 mb-2">Telepon: +62 (0) 123-4567-890</p>
-          <p className="text-gray-700">Alamat: Jakarta, Indonesia</p>
+          <p className="text-gray-700 mb-2">Email: SCOLARINFO@gmail.com</p>
+          <p className="text-gray-700 mb-2">Telepon: +62 856-4325-9238</p>
+          <p className="text-gray-700">Alamat: Yogyakarta, Indonesia</p>
         </div>
       </div>
     </div>

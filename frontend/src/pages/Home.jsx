@@ -10,7 +10,7 @@ const Home = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-4">🎓 Temukan Beasiswa Impianmu</h1>
+          <h1 className="text-5xl font-bold mb-4">Temukan Beasiswa Impianmu</h1>
           <p className="text-xl mb-8 text-blue-100">
             Portal informasi beasiswa terlengkap di Indonesia
           </p>
@@ -136,7 +136,7 @@ const Home = () => {
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-8">
         <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2024 Beasiswa.Info | Portal Informasi Beasiswa Indonesia</p>
+          <p>&copy; 2026 SCOLARINFO | Portal Informasi Beasiswa Indonesia</p>
         </div>
       </footer>
     </div>

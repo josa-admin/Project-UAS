@@ -8,7 +8,7 @@ const Artikel = () => {
       content:
         'Essay beasiswa yang baik harus jelas, fokus, dan menunjukkan motivasi Anda yang kuat. Pastikan untuk menjawab setiap pertanyaan dengan spesifik dan gunakan contoh konkret dari pengalaman Anda.',
       author: 'Admin',
-      date: '2024-01-15',
+      date: '2026-01-15',
     },
     {
       id: 2,
@@ -16,7 +16,7 @@ const Artikel = () => {
       content:
         'Memilih beasiswa yang tepat memerlukan penelitian yang matang. Pertimbangkan kriteria beasiswa, benefit yang ditawarkan, dan apakah sesuai dengan tujuan akademik Anda.',
       author: 'Admin',
-      date: '2024-01-10',
+      date: '2026-01-10',
     },
     {
       id: 3,
@@ -24,7 +24,7 @@ const Artikel = () => {
       content:
         'Sebelum mendaftar beasiswa, pastikan Anda sudah menyiapkan dokumen-dokumen penting seperti rapor, sertifikat, surat rekomendasi, dan dokumen identitas.',
       author: 'Admin',
-      date: '2024-01-05',
+      date: '2026-01-05',
     },
   ];
 
