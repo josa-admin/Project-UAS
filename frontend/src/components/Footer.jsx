@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="text-white font-bold mb-4">🎓 Beasiswa.Info</h3>
+            <h3 className="text-white font-bold mb-4">SCOLARINFO</h3>
             <p className="text-sm">Portal informasi beasiswa terlengkap di Indonesia</p>
           </div>
 
@@ -54,13 +54,13 @@ const Footer = () => {
 
           <div>
             <h3 className="text-white font-bold mb-4">Kontak</h3>
-            <p className="text-sm mb-2">Email: info@beasiswa.info</p>
-            <p className="text-sm">Telepon: +62 (0) 123-4567-890</p>
+            <p className="text-sm mb-2">Email: SCOLARINFO@gmail.com</p>
+            <p className="text-sm">Telepon: +62 856-4325-9238</p>
           </div>
         </div>
 
         <div className="border-t border-gray-700 pt-8 text-center text-sm">
-          <p>&copy; 2024 Beasiswa.Info. Semua hak cipta dilindungi.</p>
+          <p>&copy; 2026 SCOLARINFO. Semua hak cipta dilindungi.</p>
         </div>
       </div>
     </footer>
