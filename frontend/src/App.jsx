@@ -6,7 +6,6 @@ import { ProtectedRoute } from './components/ProtectedRoute';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
-// Pages
 import Home from './pages/Home';
 import Beasiswa from './pages/Beasiswa';
 import DetailBeasiswa from './pages/DetailBeasiswa';
